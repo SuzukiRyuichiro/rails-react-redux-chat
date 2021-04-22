@@ -1,5 +1,7 @@
 class Api::V1::MessagesController < ActionController::Base
   protect_from_forgery with: :null_session
+  before_action :authenticate_user!
+
   def index
     @channel = Channel.find_by(name: params[:channel_id])
     if @channel

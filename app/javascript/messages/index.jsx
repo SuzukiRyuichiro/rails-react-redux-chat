@@ -16,7 +16,7 @@ import { createHistory as history } from "history";
 
 // internal modules
 import App from "./components/app";
-import "../assets/stylesheets/application.scss";
+// import "../assets/stylesheets/application.scss";
 import messagesReducer from "./reducers/messages_reducer";
 import channelsReducer from "./reducers/channels_reducer";
 

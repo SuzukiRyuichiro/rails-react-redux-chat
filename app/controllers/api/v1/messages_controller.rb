@@ -1,4 +1,4 @@
-class Api::V1::MessagesController < ApplicationController
+class Api::V1::MessagesController < ActionController::Base
   def index
     @channel = Channel.find_by(name: params[:channel_id])
     if @channel
@@ -11,14 +11,8 @@ class Api::V1::MessagesController < ApplicationController
 
   def create
     channel = Channel.find_by(name: params[:channel_id])
-    if channel
-      message = set_message(channel)
-      save_message(message)
-    else
-      new_channel = Channel.create(name: params[:channel_id])
-      message = set_message(new_channel)
-      save_message(message)
-    end
+    message = channel ? set_message(channel) : set_message(Channel.create(name: params[:channel_id]))
+    save_message(message)
   end
 
   private

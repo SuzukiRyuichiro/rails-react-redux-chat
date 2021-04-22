@@ -1,4 +1,4 @@
-class Api::V1::ChannelsController < ApplicationController
+class Api::V1::ChannelsController < ActionController::Base
   def index
     @channels = Channel.all
     render json: {channels: @channels}

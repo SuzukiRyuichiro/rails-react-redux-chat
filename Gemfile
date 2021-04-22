@@ -29,7 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-gem 'devise_token_auth'
+gem 'devise-token_authenticatable'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

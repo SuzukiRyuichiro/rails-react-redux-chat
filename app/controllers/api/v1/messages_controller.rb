@@ -7,7 +7,7 @@ class Api::V1::MessagesController < ActionController::Base
     if @channel
       @messages = @channel.messages
       # @messages = @messages.map { |message| message.user_id = User.find(message.user_id) }
-      # render json: { channel: @channel, messages: @messages.map { |message| message.user_id = User.find(message.user_id) } }
+      # render json: { channel: @channel, messages: @messages }
     else
       render json: { channel: "not found", messages: []}
     end

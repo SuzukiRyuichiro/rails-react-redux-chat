@@ -6,7 +6,7 @@ import { setMessages } from '../actions'
 
 class MessageList extends React.Component {
   fetchMessage = () => {
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.channelFromParams}/messages` )
+    fetch(`api/v1/channels/${this.props.channelFromParams}/messages?auth_token=_j8CSsPpwvGAhQMxy8qj` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
   }

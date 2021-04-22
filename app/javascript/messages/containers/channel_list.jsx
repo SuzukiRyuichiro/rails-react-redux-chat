@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 class ChannelList extends React.Component {
   fetchChannels = () => {
-    fetch('https://scooter-messages.herokuapp.com/api/v1/channels')
+    fetch('api/v1/channels?auth_token=_j8CSsPpwvGAhQMxy8qj')
     .then(response => response.json())
     .then(data => this.props.setChannels(data.channels))
   }

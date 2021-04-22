@@ -1,4 +1,5 @@
 class Api::V1::MessagesController < ActionController::Base
+  protect_from_forgery with: :null_session
   def index
     @channel = Channel.find_by(name: params[:channel_id])
     if @channel
@@ -19,7 +20,7 @@ class Api::V1::MessagesController < ActionController::Base
 
   def set_message(channel)
     # expects a instance of a Channel
-    Message.new(content: params[:content], author: params[:author], channel: channel)
+    Message.new(content: params[:content], user: current_user, channel: channel)
   end
 
   def save_message(message)

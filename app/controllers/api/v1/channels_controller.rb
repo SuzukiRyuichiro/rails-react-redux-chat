@@ -1,4 +1,5 @@
 class Api::V1::ChannelsController < ActionController::Base
+  protect_from_forgery with: :null_session
   def index
     @channels = Channel.all
     render json: {channels: @channels}

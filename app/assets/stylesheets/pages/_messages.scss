@@ -4,7 +4,7 @@ body {
 
 .app {
   display: grid;
-  height: 100vh;
+  height: calc(100vh - 62px);
   grid-template-columns: 240px 1fr 1fr 1fr;
 
   .left-screen {
@@ -14,7 +14,7 @@ body {
 
   .right-screen {
     display: grid;
-    grid-template-rows: 90vh 1fr;
+    grid-template-rows: calc(90vh - 62px) 1fr;
     grid-column: 2/5;
 
     .message-form {

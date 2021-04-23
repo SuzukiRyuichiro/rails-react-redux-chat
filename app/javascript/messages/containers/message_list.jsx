@@ -6,13 +6,14 @@ import { setMessages } from '../actions'
 
 class MessageList extends React.Component {
   fetchMessage = () => {
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.channelFromParams}/messages` )
+    fetch(`api/v1/channels/${this.props.channelFromParams}/messages`, { credentials: "same-origin" } )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
   }
 
   shouldComponentUpdate(nextProps){
-    return this.props.messages.length !== nextProps.messages.length;
+    return true
+    // return this.props.messages.length !== nextProps.messages.length;
   }
 
   componentDidUpdate(){
@@ -41,7 +42,7 @@ class MessageList extends React.Component {
           <div className="channel-name">
             <h3>{this.props.channelFromParams}</h3>
           </div>
-          {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
+          {this.props.messages.map(message => <Message message={message} key={Math.random()} />)}
         </div>
       )
     } else {

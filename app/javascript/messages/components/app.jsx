@@ -23,9 +23,6 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <div className="left-screen sticky-top">
-          <div className="py-2 border-bottom">
-            <h2><i className="devicon-react-original"></i> <i className="devicon-redux-original"></i> Chat</h2>
-          </div>
           <ChannelList channelFromParams={this.props.match.params.channel} />
           <ChannelForm />
         </div>

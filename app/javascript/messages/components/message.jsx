@@ -26,7 +26,7 @@ export default class Message extends React.Component {
   }
 
   componentWillMount() {
-    const RGB = this.intToRGB(this.hashCode(this.props.message.author));
+    const RGB = this.intToRGB(this.hashCode(this.props.message.author.username));
     this.setState({
       nameColor: RGB
     })
@@ -37,7 +37,7 @@ export default class Message extends React.Component {
     const shortDate =  new Date(this.props.message.created_at).toLocaleTimeString('en-US');
     return(
       <div className='message border-bottom'>
-        <b className='author' style={{color: `${this.state.nameColor}`}}>{author}</b> <small className='created_at text-muted'>{shortDate}</small>
+        <b className='author' style={{color: `${this.state.nameColor}`}}>{author.username}</b> <small className='created_at text-muted'>{shortDate}</small>
         <p className='content'>{content}</p>
       </div>
     )

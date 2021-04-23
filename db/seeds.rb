@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Destroys everything
+Message.destroy_all
+Channel.destroy_all
+User.destroy_all
+
+# Fill with some test accounts and messages
+
+admin = User.create(username: 'admin', email: 'mail@mail.com', password: '123123')
+general = Channel.create(name: 'general')
+message = Message.create(channel: general, user: admin, content: 'This is the general channel')

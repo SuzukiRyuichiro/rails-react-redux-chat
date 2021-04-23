@@ -8,14 +8,12 @@ class MessageForm extends React.Component {
     super(props);
 
     this.state = {
-      nameValue: '',
       contentValue: ''
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // const name = document.querySelector('#name');
     const content = document.querySelector('#content');
     if(this.props.channelFromParams !== null){this.props.sendMessage(this.props.channelFromParams, content.value);}
     this.setState({ contentValue: '' }); // Reset message input
@@ -24,11 +22,6 @@ class MessageForm extends React.Component {
     .then(data => this.props.setMessages(data.messages));
   }
 
-  handleNameChange = (event) => {
-    this.setState({
-      nameValue: event.target.value
-    });
-  }
 
   handleContentChange = (event) => {
     this.setState({contentValue: event.target.value});
@@ -37,10 +30,6 @@ class MessageForm extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleSubmit} className="message-form">
-        <label>
-          Name:
-          <input type="text" id="name" className="form-input" value={this.state.nameValue} onChange={this.handleNameChange} />
-        </label>
         <label className="mx-3">
           Message:
           <input type="text" id="content" className="form-input" value={this.state.contentValue} onChange={this.handleContentChange} />

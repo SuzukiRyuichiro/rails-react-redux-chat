@@ -19,7 +19,7 @@ class MessageForm extends React.Component {
     const content = document.querySelector('#content');
     if(this.props.channelFromParams !== null){this.props.sendMessage(this.props.channelFromParams, name.value, content.value);}
     this.setState({ contentValue: '' }); // Reset message input
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.channelFromParams}/messages` )
+    fetch(`api/v1/channels/${this.props.channelFromParams}/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
   }

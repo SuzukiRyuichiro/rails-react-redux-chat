@@ -16,7 +16,7 @@ export function sendMessage(channel, author, content) {
 
 const sendMessageApiRequest = (channel, author, content) => {
   const body = { author: author, content: content };
-  const promise = fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${channel}/messages`, {
+  const promise = fetch(`api/v1/channels/${channel}/messages`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -43,7 +43,7 @@ export function createChannel(name){
 
 const sendChannelApiRequest = (name) => {
   const body = { name: name };
-  const promise = fetch(`https://scooter-messages.herokuapp.com/api/v1/channels`, {
+  const promise = fetch(`api/v1/channels`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

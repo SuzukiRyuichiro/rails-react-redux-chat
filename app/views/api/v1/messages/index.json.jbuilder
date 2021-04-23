@@ -4,5 +4,6 @@ json.messages do
     json.id message.id
     json.content message.content
     json.author message.user, :id, :username
+    json.created_at message.created_at
   end
 end

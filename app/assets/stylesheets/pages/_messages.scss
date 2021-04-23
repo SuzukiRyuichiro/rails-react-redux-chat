@@ -14,7 +14,7 @@ body {
 
   .right-screen {
     display: grid;
-    grid-template-rows: 90% 1fr;
+    grid-template-rows: calc(90vh - 62px) 1fr;
     grid-column: 2/5;
 
     .message-form {

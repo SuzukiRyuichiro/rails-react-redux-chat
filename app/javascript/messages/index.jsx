@@ -12,7 +12,7 @@ import {
   Switch,
   useParams
 } from "react-router-dom";
-import { createHistory as history } from "history";
+import { createBrowserHistory as history } from "history";
 
 // internal modules
 import App from "./components/app";

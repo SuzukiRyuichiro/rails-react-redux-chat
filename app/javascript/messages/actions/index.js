@@ -16,7 +16,7 @@ export function sendMessage(channel, author, content) {
 
 const sendMessageApiRequest = (channel, author, content) => {
   const body = { author: author, content: content };
-  const promise = fetch(`api/v1/channels/${channel}/messages`, {
+  const promise = fetch(`api/v1/channels/${channel}/messages?auth_token=_j8CSsPpwvGAhQMxy8qj`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

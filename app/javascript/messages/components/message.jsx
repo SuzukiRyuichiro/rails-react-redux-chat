@@ -34,7 +34,6 @@ export default class Message extends React.Component {
 
   render(){
     const { author, content } = this.props.message;
-    console.log(author);
     const shortDate =  new Date(this.props.message.created_at).toLocaleTimeString('en-US');
     return(
       <div className='message border-bottom'>

@@ -6,23 +6,27 @@ export function setMessages(messages) {
   }
 }
 
-export function sendMessage(channel, author, content) {
-  sendMessageApiRequest(channel, author, content);
+export function sendMessage(channel, content) {
+  sendMessageApiRequest(channel, content);
   return {
     type: 'SEND_MESSAGE',
-    payload: { author: author, content: content, key: content }
+    payload: { content: content, key: content }
   }
 }
 
-const sendMessageApiRequest = (channel, author, content) => {
-  const body = { author: author, content: content };
-  const promise = fetch(`api/v1/channels/${channel}/messages?auth_token=_j8CSsPpwvGAhQMxy8qj`, {
+const sendMessageApiRequest = (channel, content) => {
+  const body = { content: content };
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
+  console.log(csrfToken);
+  const promise = fetch(`api/v1/channels/${channel}/messages`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
+    credentials: "same-origin"
   }).then(r => r.json());
 }
 

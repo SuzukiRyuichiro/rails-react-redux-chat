@@ -20,7 +20,7 @@ class MessageList extends React.Component {
     setTimeout(function(){document.querySelector('.message-list').scrollIntoView({block: "end", behavior: "smooth"})}, 1500);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.fetchMessage;
     window.fetchMessageId = setInterval(this.fetchMessage, 1000);
   }

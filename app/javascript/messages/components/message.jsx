@@ -25,7 +25,7 @@ export default class Message extends React.Component {
       return '#' + "00000".substring(0, 6 - c.length) + c;
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const RGB = this.intToRGB(this.hashCode(this.props.message.author.username));
     this.setState({
       nameColor: RGB

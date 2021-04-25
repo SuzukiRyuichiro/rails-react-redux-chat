@@ -12,7 +12,7 @@ class ChannelList extends React.Component {
     .then(data => this.props.setChannels(data.channels))
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // this will load all available channels from the API
     this.fetchChannels();
     window.fetchChannelsId = setInterval(this.fetchChannels, 1000);

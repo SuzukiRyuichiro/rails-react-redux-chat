@@ -47,11 +47,13 @@ export function createChannel(name){
 
 const sendChannelApiRequest = (name) => {
   const body = { name: name };
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
   const promise = fetch(`api/v1/channels`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
+      'X-CSRF-Token': csrfToken
     },
     body: JSON.stringify(body)
   }).then(r => r.json());

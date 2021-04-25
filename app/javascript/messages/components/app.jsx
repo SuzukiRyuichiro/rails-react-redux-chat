@@ -13,7 +13,6 @@ export default class App extends React.Component {
   render() {
     const channelSelected = this.props.match.params.channel !== "No Channel Selected"
     let renderMessageList;
-    console.log(channelSelected);
     if (channelSelected) {
       renderMessageList = <MessageList channelFromParams={this.props.match.params.channel} />
     } else {

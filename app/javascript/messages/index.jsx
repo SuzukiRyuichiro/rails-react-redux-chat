@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { logger } from "redux-logger";
 import reduxPromise from "redux-promise";
 import {
-  HashRouter as Router,
+  HashRouter,
   Route,
   Redirect,
   Switch,
@@ -32,12 +32,12 @@ const middlewares = composeEnhancers(applyMiddleware(reduxPromise));
 // render an instance of the component in the DOM
 ReactDOM.render(
   <Provider store={createStore(reducers, {}, middlewares)}>
-    <Router history={history}>
+    <HashRouter history={history}>
       <Switch>
         <Route path="/:channel" component={App} />
         <Redirect from="/" to="/No%20Channel%20Selected" />
       </Switch>
-    </Router>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );

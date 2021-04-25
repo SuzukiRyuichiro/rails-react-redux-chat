@@ -27,7 +27,7 @@ class ChannelList extends React.Component {
   render() {
     return(
       <div className="channel-list mt-2">
-        {this.props.channels.map(channel => <Link to={`/${channel.name}`} key={channel.name}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''}>{channel.name}</h4></Link>)}
+        {this.props.channels.map(channel => <Link to={`/${channel.name}`} key={Math.random()}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''}>{channel.name}</h4></Link>)}
       </div>
     )
   }

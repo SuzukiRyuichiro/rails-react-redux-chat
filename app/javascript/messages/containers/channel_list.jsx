@@ -12,7 +12,7 @@ class ChannelList extends React.Component {
     .then(data => this.props.setChannels(data.channels))
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // this will load all available channels from the API
     this.fetchChannels();
     window.fetchChannelsId = setInterval(this.fetchChannels, 1000);
@@ -27,7 +27,7 @@ class ChannelList extends React.Component {
   render() {
     return(
       <div className="channel-list mt-2">
-        {this.props.channels.map(channel => <Link to={`/${channel.name}`} key={channel.name}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''}>{channel.name}</h4></Link>)}
+        {this.props.channels.map(channel => <Link to={`/${channel.name}`} key={Math.random()}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''}>{channel.name}</h4></Link>)}
       </div>
     )
   }

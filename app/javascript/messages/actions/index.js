@@ -17,7 +17,6 @@ export function sendMessage(channel, content) {
 const sendMessageApiRequest = (channel, content) => {
   const body = { content: content };
   const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
-  console.log(csrfToken);
   const promise = fetch(`api/v1/channels/${channel}/messages`, {
     method: 'POST',
     headers: {
@@ -38,7 +37,8 @@ export function setChannels(channels){
 }
 
 export function createChannel(name){
-  sendChannelApiRequest(name)
+  const ans = sendChannelApiRequest(name);
+  console.log(ans);
   return {
     type: 'CREATE_CHANNEL',
     payload: { name: name }
@@ -57,4 +57,5 @@ const sendChannelApiRequest = (name) => {
     },
     body: JSON.stringify(body)
   }).then(r => r.json());
+  return promise;
 }

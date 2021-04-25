@@ -1,3 +1,10 @@
 <div class="home-page">
   <h1 class="welcome-message">Welcom to <i class="devicon-rails-plain"></i><i class="devicon-react-original"></i> <i class="devicon-redux-original"></i> Chat</h1>
+  <div>
+    <% if user_signed_in? %>
+    <%= link_to "to Messages", messages_path, class: "text-muted" %>
+    <% else %>
+    <%= link_to "Login", new_user_session_path, class: "text-muted" %>
+    <% end %>
+  </div>
 </div>

@@ -15,14 +15,16 @@ class MessageForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const content = document.querySelector('#content');
+    // if the channel is selected, create action (sendMessage) with content
     if(this.props.channelFromParams !== null){this.props.sendMessage(this.props.channelFromParams, content.value);}
     this.setState({ contentValue: '' }); // Reset message input
+    // make an API request for the same channel to refill the message
     fetch(`api/v1/channels/${this.props.channelFromParams}/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
   }
 
-
+  // this is for handling form input
   handleContentChange = (event) => {
     this.setState({contentValue: event.target.value});
   }

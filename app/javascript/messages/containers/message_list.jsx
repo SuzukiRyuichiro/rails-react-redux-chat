@@ -12,8 +12,8 @@ class MessageList extends React.Component {
   }
 
   shouldComponentUpdate(nextProps){
+    console.log(this.props.messages.length !== nextProps.messages.length);
     return true
-    // return this.props.messages.length !== nextProps.messages.length;
   }
 
   componentDidUpdate(){

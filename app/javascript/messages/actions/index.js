@@ -38,7 +38,6 @@ export function setChannels(channels){
 
 export function createChannel(name){
   const ans = sendChannelApiRequest(name);
-  console.log(ans);
   return {
     type: 'CREATE_CHANNEL',
     payload: { name: name }
@@ -52,7 +51,7 @@ const sendChannelApiRequest = (name) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
       'X-CSRF-Token': csrfToken
     },
     body: JSON.stringify(body)

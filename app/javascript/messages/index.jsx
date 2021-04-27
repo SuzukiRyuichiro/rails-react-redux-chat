@@ -21,7 +21,7 @@ import messagesReducer from "./reducers/messages_reducer";
 import channelsReducer from "./reducers/channels_reducer";
 
 // State and reducers
-const reducers = combineReducers({
+const reducers = combinegstReducers({
   messages: messagesReducer,
   channels: channelsReducer
 });
